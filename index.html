@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <center>
+    <h1>CSS variables manipulation using JS</h1>
+    <div class="control">
+        <label for="space">Spacing</label>
+        <input id="space" name="space" type="range" min="5" max="200" value="10" data-sizing="px">
+
+        <label for="blur">Blur</label>
+        <input type="range" name="blur" id="blur" min="0" max="30" value="10" data-sizing="px">
+
+        <label for="base">BaseColor</label>
+        <input type="color" name="base" id="base" value="#0066cc">
+    </div>
+
+    <img src="https://image.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg" alt="img">
+  
+</center>
+ 
+<script>
+    const val = document.querySelectorAll('.control input');
+
+function changeVal(){
+    const suffix = this.dataset.sizing || '' ;
+    document.documentElement.style.setProperty(`--${this.name}` , this.value +suffix);
+    console.log(this.value)
+}
+val.forEach(input => input.addEventListener('change', changeVal));
+val.forEach(input => input.addEventListener('mousemove', changeVal));
+
+</script>
+</body>
+</html>
